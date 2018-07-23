@@ -1,8 +1,9 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const port = 9000
+const port = parseint(process.env.PORT) || 9000
 const data = require('./api/cohorts')
+
 
 app.use(cors())
 
@@ -12,6 +13,7 @@ function dataId(data, id) {
       return data[i]
     }
   }
+  return null
 }
 
 app.get('/', function(request, response){
